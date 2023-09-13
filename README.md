@@ -9,3 +9,6 @@ Dentro da pasta do projeto (ou seja, ItemService ou RestauranteService):
 
 ## Levantar o banco de dados
 - docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Sql12345678" -p 1433:1433 --name sqlserver --hostname sqlserver -d --network restaurante-bridge mcr.microsoft.com/mssql/server:2022-latest
+
+## Subir o rabbitmq
+- docker run -d --hostname rabbitmq-service --name rabbitmq-service --network restaurante-bridge rabbitmq:3-management
