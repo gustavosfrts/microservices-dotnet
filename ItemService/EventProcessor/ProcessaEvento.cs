@@ -27,7 +27,7 @@ namespace ItemService.EventProcessor
 
             var restaurante = _mapper.Map<Restaurante>(restauranteReadDto);
 
-            if(itemRepository.ExisteRestauranteExterno(restaurante.Id))
+            if(!itemRepository.ExisteRestauranteExterno(restaurante.Id))
             {
                 itemRepository.CreateRestaurante(restaurante);
                 itemRepository.SaveChanges();
