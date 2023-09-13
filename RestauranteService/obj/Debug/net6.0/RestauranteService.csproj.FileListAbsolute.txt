@@ -85,3 +85,4 @@ C:\estudo\microservices-dotnet\RestauranteService\obj\Debug\net6.0\refint\Restau
 C:\estudo\microservices-dotnet\RestauranteService\obj\Debug\net6.0\RestauranteService.pdb
 C:\estudo\microservices-dotnet\RestauranteService\obj\Debug\net6.0\RestauranteService.genruntimeconfig.cache
 C:\estudo\microservices-dotnet\RestauranteService\obj\Debug\net6.0\ref\RestauranteService.dll
+C:\estudo\microservices-dotnet\RestauranteService\bin\Debug\net6.0\System.Threading.Channels.dll
