@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using RestauranteService.AsyncDataServices;
 using RestauranteService.Data;
-using RestauranteService.Http;
+using RestauranteService.ItemServiceHttpClient;
+using Microsoft.EntityFrameworkCore;
+using RestauranteService.RabbitMqClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +16,14 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("RestauranteConnection");
 
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IRestauranteRepository, RestauranteRepository>();
 
-builder.Services.AddHttpClient<IItemHttpClient, ItemHttpClient>();
-builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
+builder.Services.AddSingleton<IRabbitMqClient, RabbitMqClient>();
+
+builder.Services.AddHttpClient<IItemServiceHttpClient, ItemServiceHttpClient>();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddSwaggerGen(c =>

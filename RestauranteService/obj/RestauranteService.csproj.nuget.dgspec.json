@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniel.mastub\\aluramicro\\RestauranteService\\RestauranteService.csproj": {}
+    "C:\\estudo\\microservices-dotnet\\RestauranteService\\RestauranteService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniel.mastub\\aluramicro\\RestauranteService\\RestauranteService.csproj": {
+    "C:\\estudo\\microservices-dotnet\\RestauranteService\\RestauranteService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniel.mastub\\aluramicro\\RestauranteService\\RestauranteService.csproj",
+        "projectUniqueName": "C:\\estudo\\microservices-dotnet\\RestauranteService\\RestauranteService.csproj",
         "projectName": "RestauranteService",
-        "projectPath": "C:\\Users\\daniel.mastub\\aluramicro\\RestauranteService\\RestauranteService.csproj",
-        "packagesPath": "C:\\Users\\daniel.mastub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniel.mastub\\aluramicro\\RestauranteService\\obj\\",
+        "projectPath": "C:\\estudo\\microservices-dotnet\\RestauranteService\\RestauranteService.csproj",
+        "packagesPath": "C:\\Users\\CODE-DEV-23\\.nuget\\packages\\",
+        "outputPath": "C:\\estudo\\microservices-dotnet\\RestauranteService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\daniel.mastub\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CODE-DEV-23\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,35 +42,43 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[11.0.0, )"
+              "version": "[12.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[7.0.11, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[7.0.0, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -91,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

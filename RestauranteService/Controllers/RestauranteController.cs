@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using RestauranteService.AsyncDataServices;
 using RestauranteService.Data;
 using RestauranteService.Dtos;
-using RestauranteService.Http;
+using RestauranteService.ItemServiceHttpClient;
 using RestauranteService.Models;
+using RestauranteService.RabbitMqClient;
 
 namespace RestauranteService.Controllers;
 
@@ -17,19 +14,19 @@ public class RestauranteController : ControllerBase
 {
     private readonly IRestauranteRepository _repository;
     private readonly IMapper _mapper;
-    private readonly IItemHttpClient _itemHttpClient;
-    private readonly IMessageBusClient _messageBusClient;
+    private IItemServiceHttpClient _itemServiceHttpClient;
+    private IRabbitMqClient _rabbitMqClient;
 
     public RestauranteController(
         IRestauranteRepository repository,
-        IMapper mapper,
-        IItemHttpClient itemClient,
-        IMessageBusClient messageBusClient)
+        IMapper mapper, 
+        IItemServiceHttpClient itemServiceHttpClient,
+        IRabbitMqClient rabbitMqClient)
     {
         _repository = repository;
         _mapper = mapper;
-        _itemHttpClient = itemClient;
-        _messageBusClient = messageBusClient;
+        _itemServiceHttpClient = itemServiceHttpClient;
+        _rabbitMqClient = rabbitMqClient;
     }
 
     [HttpGet]
@@ -62,12 +59,8 @@ public class RestauranteController : ControllerBase
 
         var restauranteReadDto = _mapper.Map<RestauranteReadDto>(restaurante);
 
-
-        await _itemHttpClient.EnviaRestauranteParaItem(restauranteReadDto);
-
-        var restaurantePublishedDto = _mapper.Map<RestaurantePublishedDto>(restauranteReadDto);
-        restaurantePublishedDto.Evento = "Restaurante_Published";
-        _messageBusClient.PublishRestaurante(restaurantePublishedDto);
+        // _itemServiceHttpClient.EnviaRestauranteParaItemService(restauranteReadDto);
+        _rabbitMqClient.PublicaRestaurante(restauranteReadDto);
 
 
         return CreatedAtRoute(nameof(GetRestauranteById), new { restauranteReadDto.Id }, restauranteReadDto);
